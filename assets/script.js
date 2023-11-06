@@ -1,3 +1,27 @@
+$(function () {
+  // Current day via day.js
+  var currentDate = dayjs().format('dddd, MMMM D, YYYY');
+  // Sets the element with the id "currentDay" to the current date
+  $('#currentDay').text(currentDate);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.

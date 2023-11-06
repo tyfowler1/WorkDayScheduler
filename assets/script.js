@@ -6,7 +6,31 @@ $(function () {
 });
 
 
+$(document).ready(function () {
+  // Get the current hour using Day.js
+  const currentHour = dayjs().hour(); 
 
+  // Array of hours
+  const hourElements = ["hour-9", "hour-10", "hour-11", "hour-12", "hour-13", "hour-14", "hour-15", "hour-16", "hour-17"];
+
+  // Loops through the array to apply the logic for each hour
+  hourElements.forEach((elementId) => {
+    const targetElement = document.getElementById(elementId);
+    const elementHour = parseInt(targetElement.id.split('-')[1]);
+
+    // Check the current time against what the element is asssoc with 
+    if (currentHour > elementHour) {
+      targetElement.classList.add("past");
+      targetElement.classList.remove("present", "future");
+    } else if (currentHour === elementHour) {
+      targetElement.classList.add("present");
+      targetElement.classList.remove("past", "future");
+    } else {
+      targetElement.classList.add("future");
+      targetElement.classList.remove("past", "present");
+    }
+  });
+});
 
 
 

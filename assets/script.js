@@ -1,8 +1,8 @@
 $(function () {
   // Current day via day.js
-  var currentDate = dayjs().format('dddd, MMMM D, YYYY');
+  var currentDateTime = dayjs().format('dddd, MMMM D, YYYY, HH:mm');
   // Sets the element with the id "currentDay" to the current date
-  $('#currentDay').text(currentDate);
+  $('#currentDay').text(currentDateTime);
 });
 
 

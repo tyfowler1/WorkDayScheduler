@@ -18,7 +18,7 @@ $(document).ready(function () {
     const targetElement = document.getElementById(elementId);
     const elementHour = parseInt(targetElement.id.split('-')[1]);
 
-    // Check the current time against what the element is asssoc with 
+    // Check the current time against what the element is associated with 
     if (currentHour > elementHour) {
       targetElement.classList.add("past");
       targetElement.classList.remove("present", "future");
@@ -29,9 +29,21 @@ $(document).ready(function () {
       targetElement.classList.add("future");
       targetElement.classList.remove("past", "present");
     }
+    
+    // Retrieve user input from local storage
+    const savedInput = localStorage.getItem(elementId);
+    if (savedInput) {
+      const description = targetElement.querySelector(".description");
+      description.value = savedInput;
+    }
+
+    // Listener for text area to store user input
+    const descriptionTextarea = targetElement.querySelector(".description");
+    descriptionTextarea.addEventListener("input", function () {
+      localStorage.setItem(elementId, descriptionTextarea.value);
+    });
   });
 });
-
 
 
 
